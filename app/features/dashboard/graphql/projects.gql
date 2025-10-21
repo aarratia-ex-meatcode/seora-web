@@ -1,0 +1,23 @@
+mutation AddProject(
+  $user_id: ID!
+  $name: String!
+  $domain: String!
+  $country: String
+  $settings: JSON
+) {
+  addProject(
+    user_id: $user_id
+    name: $name
+    domain: $domain
+    country: $country
+    settings: $settings
+  ) {
+    id
+    user_id
+    name
+    domain
+    country
+    settings
+    created_at
+  }
+}

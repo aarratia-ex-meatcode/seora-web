@@ -1,0 +1,14 @@
+query {
+  me {
+    id
+    name
+    email
+    projects {
+      id
+      name
+    }
+    credit {
+      balance
+    }
+  }
+}
