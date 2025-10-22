@@ -5,7 +5,6 @@ export async function addProject(variables: {
   user_id: string
   name: string
   domain: string
-  country?: string
   settings?: Record<string, any>
 }) {
   const { addProject } = await graphqlRequest(AddProject, variables)

@@ -10,20 +10,10 @@ import {
 
 const competitors = [
   {
-    name: "Betcris",
-    desc: "Casa de apuestas deportivas con presencia en Latinoamérica.",
-    url: "https://www.betcris.mx",
-  },
-  {
-    name: "Ganabet",
-    desc: "Plataforma de apuestas deportivas y juegos de casino.",
-    url: "https://www.sportiumbet.mx",
-  },
-  {
-    name: "Betway",
-    desc: "Casino online y apuestas deportivas.",
-    url: "https://www.betway.mx",
-  },
+    name: "Lorem",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    url: "https://www.lorem.com",
+  }
 ];
 
 export function CompetitorsTab() {

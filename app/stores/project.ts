@@ -6,7 +6,7 @@ export interface Project {
     id: string;
     name: string;
     domain: string;
-    country: string;
+    country: string|null;
 }
 
 interface ProjectState {

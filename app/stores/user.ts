@@ -9,7 +9,6 @@ interface Project {
   id: string
   name: string
   domain: string
-  country?: string
 }
 
 interface User {

@@ -4,16 +4,7 @@ import { Card } from "@/components/ui/card";
 import { IconRefresh, IconEdit, IconX, IconMessageQuestion, IconPlus } from "@tabler/icons-react";
 
 const questions = [
-  "¿Cuáles son las casas de apuestas más confiables en México?",
-  "¿Qué plataforma de apuestas ofrece las mejores cuotas?",
-  "¿Dónde puedo apostar en línea de forma segura?",
-  "¿Cuál es la casa de apuestas con la interfaz más fácil de usar?",
-  "¿Qué sitios de apuestas tienen los bonos de bienvenida más atractivos?",
-  "¿Cuál es la mejor app para apostar desde mi celular?",
-  "¿Qué casas de apuestas ofrecen apuestas en vivo con streaming?",
-  "¿Qué plataforma de apuestas tiene la mayor variedad de deportes?",
-  "¿Dónde puedo encontrar apuestas especiales y mercados únicos?",
-  "¿Qué casa de apuestas paga más rápido las ganancias?",
+  "¿Lorem ipsum dolor sit amet?"
 ];
 
 export function SovQuestionsTab() {
