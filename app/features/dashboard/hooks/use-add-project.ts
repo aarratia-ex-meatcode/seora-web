@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query"
 import { toast } from "sonner"
-import { addProject } from "@/features/dashboard/api/projects.api"
-import { me } from "@/features/me/api/me.api"
-import { useUserStore } from "@/stores/user-store"
+import { addProject } from "~/features/dashboard/api/project"
+import { me } from "~/features/me/api/me"
+import { useUserStore } from "~/stores/user"
 
 export function useAddProject() {
   const { setUser } = useUserStore()

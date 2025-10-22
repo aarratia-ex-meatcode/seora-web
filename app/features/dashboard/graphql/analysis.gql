@@ -1,0 +1,12 @@
+mutation RunAeo($project_id: ID!, $question: String!, $models: [String!]!) {
+  runaeoAnalysis(
+    project_id: $project_id
+    question: $question
+    models: $models
+  ) {
+    question
+    answers
+    final_answer
+    scoring
+  }
+}

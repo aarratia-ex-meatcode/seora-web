@@ -21,8 +21,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { useAuthStore } from "@/stores/auth-store"
-import { useUserStore } from "@/stores/user-store"
+import { useAuthStore } from "~/stores/auth"
+import { useUserStore } from "~/stores/user"
 
 export function NavUser({
   user,
@@ -59,6 +59,7 @@ export function NavUser({
               <IconDotsVertical className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
+
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
             side={isMobile ? "bottom" : "right"}
@@ -75,25 +76,37 @@ export function NavUser({
                 </div>
               </div>
             </DropdownMenuLabel>
+
             <DropdownMenuSeparator />
+
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <IconUserCircle />
-                Account
+              <DropdownMenuItem asChild>
+                <a href="/dashboard/profile" className="flex items-center gap-2">
+                  <IconUserCircle />
+                  Perfil
+                </a>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <IconCreditCard />
-                Billing
+
+              <DropdownMenuItem asChild>
+                <a href="/dashboard/billing" className="flex items-center gap-2">
+                  <IconCreditCard />
+                  Facturación
+                </a>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <IconNotification />
-                Notifications
+
+              <DropdownMenuItem asChild>
+                <a href="/dashboard/notifications" className="flex items-center gap-2">
+                  <IconNotification />
+                  Notificaciones
+                </a>
               </DropdownMenuItem>
             </DropdownMenuGroup>
+
             <DropdownMenuSeparator />
+
             <DropdownMenuItem onClick={handleLogout}>
               <IconLogout />
-              Log out
+              Cerrar sesión
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

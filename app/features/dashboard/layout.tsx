@@ -3,8 +3,8 @@ import { AppSidebar } from "@/features/dashboard/components/app-sidebar"
 import { SiteHeader } from "@/features/dashboard/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Outlet } from "react-router"
-import { useAuthStore } from "@/stores/auth-store"
-import { useUserStore } from "@/stores/user-store"
+import { useAuthStore } from "~/stores/auth"
+import { useUserStore } from "~/stores/user"
 
 export default function Page() {
   const { token } = useAuthStore()

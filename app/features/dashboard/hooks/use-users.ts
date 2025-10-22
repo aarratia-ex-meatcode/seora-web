@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getUsers } from "@/features/dashboard/api/users.api"
+import { getUsers } from "~/features/dashboard/api/user"
 
 export function useUsers(params = { first: 10, page: 1 }) {
   return useQuery({

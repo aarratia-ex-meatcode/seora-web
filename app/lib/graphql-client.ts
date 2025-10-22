@@ -1,5 +1,5 @@
 import { print } from "graphql"
-import { useAuthStore } from "@/stores/auth-store"
+import { useAuthStore } from "~/stores/auth"
 
 const endpoint = import.meta.env.VITE_API_URL
 

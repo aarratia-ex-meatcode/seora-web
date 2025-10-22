@@ -1,5 +1,5 @@
 import { graphqlRequest } from "@/lib/graphql-client"
-import AddProject from "@/features/dashboard/graphql/projects.gql"
+import AddProject from "@/features/dashboard/graphql/project.gql"
 
 export async function addProject(variables: {
   user_id: string

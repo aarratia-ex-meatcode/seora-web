@@ -1,0 +1,18 @@
+[
+    {
+        "selector": ".step-question",
+        "content": "Escribe la pregunta que quieres analizar. Los modelos de IA buscarán información sobre tu marca en relación a esta consulta."
+    },
+    {
+        "selector": ".step-models",
+        "content": "Elige qué modelos de IA quieres usar para el análisis. Cada uno consumirá 1 crédito."
+    },
+    {
+        "selector": ".step-search",
+        "content": "Haz clic para iniciar el análisis. Los modelos consultarán sus fuentes y analizarán la presencia de tu marca."
+    },
+    {
+        "selector": ".step-tabs",
+        "content": "Aquí puedes alternar entre el resultado actual y el historial de búsquedas."
+    }
+]

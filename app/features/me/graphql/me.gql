@@ -5,6 +5,7 @@ query {
     email
     projects {
       id
+      domain
       name
     }
     credit {
