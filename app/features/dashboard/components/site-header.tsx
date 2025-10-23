@@ -32,17 +32,17 @@ export function SiteHeader() {
   return (
     <header className="flex shrink-0 items-center justify-between border-b bg-transparent px-8 py-4">
       <div className="flex items-center gap-3">
-        <SidebarTrigger />
+        <SidebarTrigger className="text-primary-foreground hover:bg-primary/10 opacity-100 [&_svg:not([class*='size-'])]:size-4" />
         <Separator orientation="vertical" className="h-5" />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               variant="outline"
-              className="min-w-[180px] justify-between rounded-xl border-gray-300 text-sm font-normal"
+              className="text-primary-foreground hover:bg-primary/10 border-primary min-w-[180px] justify-between rounded-md border text-sm font-medium shadow-none"
             >
               {currentProject?.name || "Sin proyectos"}
-              <ChevronDown className="h-4 w-4 opacity-50" />
+              <ChevronDown className="h-5 w-5 text-[#dfab58]" />
             </Button>
           </DropdownMenuTrigger>
 
@@ -85,7 +85,7 @@ export function SiteHeader() {
         ) : (
           <Badge
             variant="secondary"
-            className="text-foreground bg-background rounded-full px-3 py-1 text-xs"
+            className="text-primary-foreground border-primary rounded-full border bg-[#f9f1db] px-3 py-1 text-xs"
           >
             Sin créditos
           </Badge>
