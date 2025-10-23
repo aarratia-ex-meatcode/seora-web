@@ -37,7 +37,7 @@ export function LoginForm() {
   };
 
   return (
-    <div className="border-primary rounded-xl border bg-white p-6 md:p-9">
+    <div className="border-primary rounded-xl border bg-white p-6 md:p-8">
       <div className="flex flex-col gap-y-8">
         <div className="space-y-1">
           <h1 className="text-foreground text-xl font-medium">
