@@ -30,7 +30,7 @@ export function SiteHeader() {
   }, [projects, currentProject, setProject]);
 
   return (
-    <header className="flex h-20 shrink-0 items-center justify-between border-b bg-transparent px-4">
+    <header className="flex shrink-0 items-center justify-between border-b bg-transparent px-8 py-4">
       <div className="flex items-center gap-3">
         <SidebarTrigger />
         <Separator orientation="vertical" className="h-5" />
