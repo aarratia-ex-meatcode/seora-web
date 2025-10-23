@@ -7,7 +7,16 @@ import { Textarea } from "@/components/ui/textarea";
 import sampleQuestions from "@/data/questions.json";
 import steps from "@/data/steps.json";
 import { TourProvider, useTour } from "@reactour/tour";
-import { Brain, CheckCircle2, Circle, Search, Settings2, User2 } from "lucide-react";
+import {
+  Brain,
+  CheckCircle2,
+  Circle,
+  Clock,
+  HelpCircle,
+  Search,
+  Settings2,
+  User2,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useRunAnalysis } from "~/features/dashboard/hooks/use-run-analysis";
@@ -42,7 +51,7 @@ function ModelCard({
   return (
     <button
       onClick={onClick}
-      className={`flex w-full items-center justify-between rounded-xl border px-4 py-[10px] transition-colors ${
+      className={`flex w-full items-center justify-between rounded-md border px-4 py-[10px] transition-colors ${
         active
           ? "border-zinc-400 bg-white"
           : "border-zinc-200 hover:border-zinc-300"
@@ -56,7 +65,9 @@ function ModelCard({
         >
           {icon}
         </span>
-        <span className="text-[15px] font-medium text-zinc-800">{label}</span>
+        <span className="text-primary-foreground text-[15px] font-medium">
+          {label}
+        </span>
       </div>
       {active ? (
         <CheckCircle2 className="h-[18px] w-[18px] text-zinc-700" />
@@ -138,64 +149,67 @@ function AnalysisContent() {
   const projectName = currentProject?.name || "Sin proyecto";
 
   return (
-    <div className="">
-      <div className="mb-6 flex items-center justify-between">
+    <>
+      <div className="flex items-center justify-between">
         <div>
-          <h1 className="flex items-center gap-3 text-[32px] leading-tight font-extrabold">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-black text-white">
+          <h1 className="flex items-center gap-3 text-3xl leading-tight font-bold">
+            <span className="bg-primary text-primary-foreground grid h-10 w-10 place-items-center rounded-md">
               <Brain className="h-5 w-5" />
             </span>
             AEO Analysis
           </h1>
-          <p className="mt-1 text-sm text-zinc-500">
+          <p className="text-muted-foreground mt-1 text-sm">
             Análisis de Inteligencia Competitiva con diferentes modelos de IA
           </p>
         </div>
         <Button
           variant="outline"
-          className="rounded-full border border-zinc-300 px-5 text-sm font-medium hover:bg-zinc-50"
+          size="lg"
+          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
           onClick={startTour}
         >
-          ¿Cómo usar AEO Analysis?
+          <HelpCircle className="h-5 w-5" />
+          Ayuda
         </Button>
       </div>
 
-      <Card className="rounded-2xl border border-zinc-200">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-[20px] font-semibold text-zinc-800">
-            <Settings2 className="h-5 w-5 text-zinc-700" />
+      <div className="border-primary space-y-6 rounded-md border bg-white p-6 shadow-none md:p-8">
+        <div className="space-y-1">
+          <h2 className="text-primary-foreground flex items-center gap-2 text-xl leading-tight font-bold">
+            <Settings2 className="size-4" />
             Configuración del Análisis
-          </CardTitle>
-          <p className="mt-1 text-sm text-zinc-500">
+          </h2>
+          <p className="text-muted-foreground text-sm">
             Ingresa tu pregunta para analizar con diferentes modelos de IA
           </p>
-        </CardHeader>
+        </div>
 
-        <CardContent className="flex flex-col gap-6 pt-2">
-          <div className="flex items-center gap-3 rounded-xl bg-zinc-100/70 px-5 py-3">
-            <User2 className="h-5 w-5 text-zinc-500" />
-            <span className="text-[15px] font-medium text-zinc-600">
+        <div className="flex flex-col gap-6">
+          <div className="border-primary bg-background flex items-center gap-3 rounded-md border px-5 py-3">
+            <User2 className="size-4" />
+            <span className="text-primary-foreground text-[15px] font-medium">
               Marca objetivo:
             </span>
-            <span className="rounded-full bg-white px-3 py-1 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200">
+
+            <span className="text-primary-foreground text-[15px] font-medium">
               {projectName}
             </span>
           </div>
 
           <div className="step-question">
-            <label className="mb-2 block text-sm font-semibold text-zinc-800">
+            <label className="text-primary-foreground mb-2 block text-sm font-semibold">
               Pregunta del Usuario
             </label>
             <Textarea
               value={question}
               onChange={e => setQuestion(e.target.value)}
               placeholder={placeholder}
-              className="min-h-[110px] resize-none rounded-xl border border-zinc-200 text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
+              className="border-primary min-h-[110px] resize-none rounded-md border text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
             />
           </div>
 
           <div className="step-models">
-            <label className="mb-3 block text-sm font-semibold text-zinc-800">
+            <label className="text-primary-foreground mb-3 block text-sm font-semibold">
               Selecciona los modelos
             </label>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -214,30 +228,35 @@ function AnalysisContent() {
           <div className="step-search flex justify-end">
             <Button
               onClick={handleSearch}
+              variant="soft"
+              size="lg"
               disabled={runAnalysisMutation.isPending}
-              className="h-10 rounded-xl px-6 text-[15px] shadow-none hover:opacity-90"
             >
-              <Search className="mr-2 h-4 w-4" />
+              <Search className="h-5 w-5" />
               {runAnalysisMutation.isPending ? "Analizando..." : "Buscar"}
             </Button>
           </div>
-        </CardContent>
-      </Card>
-
-      <Separator className="my-8" />
+        </div>
+      </div>
 
       <div className="step-tabs flex justify-center gap-8">
-        <Button className="flex items-center gap-2 rounded-xl bg-black px-6 py-3 font-medium text-white">
-          <Brain className="h-4 w-4" />
+        <Button
+          variant="outline"
+          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
+          size="lg"
+        >
+          <Brain />
           Análisis Actual
         </Button>
         <Button
-          variant="ghost"
-          className="flex items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-6 py-3 text-zinc-800 hover:bg-zinc-100"
+          variant="outline"
+          size="lg"
+          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
         >
-          ⏱️ Historial
+          <Clock className="h-5 w-5" />
+          Historial
         </Button>
       </div>
-    </div>
+    </>
   );
 }
