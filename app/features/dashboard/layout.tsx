@@ -10,7 +10,7 @@ import { useUserStore } from "~/stores/user";
 const SIDEBAR_WIDTH = "calc(var(--spacing) * 72)";
 const HEADER_HEIGHT = "calc(var(--spacing) * 12)";
 
-const sidebarProviderStyles = {
+const SIDEBAR_PROVIDER_STYLES = {
   "--sidebar-width": SIDEBAR_WIDTH,
   "--header-height": HEADER_HEIGHT,
 } as React.CSSProperties;
@@ -20,7 +20,7 @@ export default function Page() {
   const { user } = useUserStore();
 
   return (
-    <SidebarProvider style={sidebarProviderStyles}>
+    <SidebarProvider style={SIDEBAR_PROVIDER_STYLES}>
       <AppSidebar variant="sidebar" />
       <SidebarInset className="bg-background">
         <SiteHeader />
