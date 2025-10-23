@@ -1,16 +1,13 @@
+import { Block } from "@/components/primitives/block";
 import { Button } from "@/components/ui/button";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
+import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useLogin } from "@/features/login/hooks/use-login";
 import messages from "@features/login/config/messages.json";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -37,16 +34,16 @@ export function LoginForm() {
   };
 
   return (
-    <div className="border-primary rounded-xl border bg-white p-6 md:p-8">
-      <div className="flex flex-col gap-y-8">
-        <div className="space-y-1">
+    <Block className="border-primary rounded-xl border bg-white p-6 md:p-8">
+      <Block className="flex flex-col gap-y-8">
+        <Block className="space-y-1">
           <h1 className="text-foreground text-xl font-medium">
             {messages.login.title}
           </h1>
           <p className="text-muted-foreground text-sm">
             {messages.login.description}
           </p>
-        </div>
+        </Block>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -64,17 +61,17 @@ export function LoginForm() {
                 />
               </Field>
               <Field>
-                <div className="flex items-center">
+                <Block className="flex items-center">
                   <FieldLabel htmlFor="password">
                     {messages.login.form.password.label}
                   </FieldLabel>
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
                     {messages.login.form.password.forgot}
-                  </a>
-                </div>
+                  </Link>
+                </Block>
                 <Input
                   shadow="none"
                   dimensions="xl"
@@ -97,13 +94,13 @@ export function LoginForm() {
                 </Button>
                 <FieldDescription className="text-center">
                   {messages.login.form.signup.text}{" "}
-                  <a href="#">{messages.login.form.signup.link}</a>
+                  <Link to="#">{messages.login.form.signup.link}</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>
           </form>
         </Form>
-      </div>
-    </div>
+      </Block>
+    </Block>
   );
 }
