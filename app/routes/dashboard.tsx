@@ -1,5 +1,5 @@
 import DashboardLayout from "../features/dashboard/layout"
-import Users from "../features/dashboard/pages/users/index"
+import Users from "../features/dashboard/pages/users"
 
 export default [
   {
