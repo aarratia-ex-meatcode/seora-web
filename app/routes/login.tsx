@@ -1,3 +1,4 @@
+import { Block } from "@/components/primitives/block";
 import { LoginForm } from "@features/login/components/login-form";
 import type { Route } from "./+types/login";
 
@@ -7,12 +8,12 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Login() {
   return (
-    <div className="bg-background">
-      <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-        <div className="w-full max-w-md">
+    <Block className="bg-background">
+      <Block className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+        <Block className="w-full max-w-md">
           <LoginForm />
-        </div>
-      </div>
-    </div>
+        </Block>
+      </Block>
+    </Block>
   );
 }
