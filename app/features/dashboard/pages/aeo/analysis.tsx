@@ -1,25 +1,18 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { TourProvider, useTour } from "@reactour/tour";
-import { toast } from "sonner";
-import { useProviderStore } from "~/stores/provider";
-import { useProjectStore } from "~/stores/project";
-import { useRunAnalysis } from "~/features/dashboard/hooks/use-run-analysis";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import steps from "@/data/steps.json";
+import { Textarea } from "@/components/ui/textarea";
 import sampleQuestions from "@/data/questions.json";
-import {
-  Brain,
-  Settings2,
-  Search,
-  User2,
-  CheckCircle2,
-  Circle,
-} from "lucide-react";
+import steps from "@/data/steps.json";
+import { TourProvider, useTour } from "@reactour/tour";
+import { Brain, CheckCircle2, Circle, Search, Settings2, User2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
+import { useRunAnalysis } from "~/features/dashboard/hooks/use-run-analysis";
+import { useProjectStore } from "~/stores/project";
+import { useProviderStore } from "~/stores/provider";
 
 type ModelKey = string;
 
@@ -87,7 +80,7 @@ function AnalysisContent() {
   useEffect(() => {
     if (Array.isArray(sampleQuestions) && sampleQuestions.length > 0) {
       setPlaceholder(
-        sampleQuestions[Math.floor(Math.random() * sampleQuestions.length)]
+        sampleQuestions[Math.floor(Math.random() * sampleQuestions.length)],
       );
     }
   }, []);
@@ -106,10 +99,10 @@ function AnalysisContent() {
   }, [providers]);
 
   const toggleModel = (key: ModelKey) =>
-    setModels((prev) => {
+    setModels(prev => {
       if (prev.includes(key)) {
         if (prev.length === 1) return prev;
-        return prev.filter((k) => k !== key);
+        return prev.filter(k => k !== key);
       }
       return [...prev, key];
     });
@@ -145,10 +138,10 @@ function AnalysisContent() {
   const projectName = currentProject?.name || "Sin proyecto";
 
   return (
-    <div className="mx-auto w-full max-w-6xl py-10">
+    <div className="">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="flex items-center gap-3 text-[32px] font-extrabold leading-tight">
+          <h1 className="flex items-center gap-3 text-[32px] leading-tight font-extrabold">
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-black text-white">
               <Brain className="h-5 w-5" />
             </span>
@@ -195,7 +188,7 @@ function AnalysisContent() {
             </label>
             <Textarea
               value={question}
-              onChange={(e) => setQuestion(e.target.value)}
+              onChange={e => setQuestion(e.target.value)}
               placeholder={placeholder}
               className="min-h-[110px] resize-none rounded-xl border border-zinc-200 text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
             />
@@ -206,7 +199,7 @@ function AnalysisContent() {
               Selecciona los modelos
             </label>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {providers.map((slug) => (
+              {providers.map(slug => (
                 <ModelCard
                   key={slug}
                   icon={<Brain className="h-4 w-4 text-zinc-600" />}
