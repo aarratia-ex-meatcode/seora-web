@@ -30,7 +30,7 @@ export function SiteHeader() {
   }, [projects, currentProject, setProject]);
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b bg-white px-4">
+    <header className="flex h-20 shrink-0 items-center justify-between border-b bg-transparent px-4">
       <div className="flex items-center gap-3">
         <SidebarTrigger />
         <Separator orientation="vertical" className="h-5" />
@@ -50,7 +50,7 @@ export function SiteHeader() {
             align="start"
             className="w-[220px] rounded-xl shadow-sm"
           >
-            {projects.map((p) => (
+            {projects.map(p => (
               <DropdownMenuItem
                 key={p.id}
                 onClick={() => setProject(p)}
@@ -60,10 +60,10 @@ export function SiteHeader() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuItem
-              className="text-blue-600 text-sm font-medium"
+              className="text-sm font-medium text-blue-600"
               onClick={() => setOpen(true)}
             >
-              <Plus className="h-4 w-4 mr-2" /> Crear nuevo proyecto
+              <Plus className="mr-2 h-4 w-4" /> Crear nuevo proyecto
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -74,7 +74,7 @@ export function SiteHeader() {
           <>
             <Badge
               variant="outline"
-              className="rounded-full border-blue-200 bg-blue-50 text-blue-600 text-xs px-3"
+              className="rounded-full border-blue-200 bg-blue-50 px-3 text-xs text-blue-600"
             >
               FREE
             </Badge>
@@ -85,7 +85,7 @@ export function SiteHeader() {
         ) : (
           <Badge
             variant="secondary"
-            className="text-xs px-3 py-1 bg-gray-100 text-gray-500"
+            className="text-foreground bg-background rounded-full px-3 py-1 text-xs"
           >
             Sin créditos
           </Badge>
