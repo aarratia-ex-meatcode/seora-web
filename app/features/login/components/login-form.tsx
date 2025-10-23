@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useLogin } from "@/features/login/hooks/use-login";
@@ -34,8 +39,10 @@ export function LoginForm() {
   return (
     <div className="rounded-xl border-2 border-[#eed7a1] bg-white p-6 md:p-9">
       <div className="flex flex-col gap-y-8">
-        <div className="space-y-1.5">
-          <h1 className="text-xl font-medium">{messages.login.title}</h1>
+        <div className="space-y-1">
+          <h1 className="text-foreground text-xl font-medium">
+            {messages.login.title}
+          </h1>
           <p className="text-muted-foreground text-sm">
             {messages.login.description}
           </p>
