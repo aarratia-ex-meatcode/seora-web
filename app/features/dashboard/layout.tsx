@@ -16,11 +16,12 @@ export default function Page() {
         {
           "--sidebar-width": "calc(var(--spacing) * 72)",
           "--header-height": "calc(var(--spacing) * 12)",
+          "background-color": "var(--background)",
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
+      <AppSidebar variant="sidebar" />
+      <SidebarInset className="bg-white">
         <SiteHeader />
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">
