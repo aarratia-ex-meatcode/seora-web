@@ -1,5 +1,5 @@
-import type { Route } from "./+types/login";
 import { LoginForm } from "@features/login/components/login-form";
+import type { Route } from "./+types/login";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Login - AEO" }, { name: "description", content: "Login" }];
