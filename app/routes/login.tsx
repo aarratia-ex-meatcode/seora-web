@@ -1,17 +1,18 @@
-import type { Route } from "./+types/home";
-import { LoginForm } from "../features/login/components/login-form";
+import type { Route } from "./+types/login";
+import { LoginForm } from "@features/login/components/login-form";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Login - AEO" },
-    { name: "description", content: "Login" },
-  ];
+  return [{ title: "Login - AEO" }, { name: "description", content: "Login" }];
 }
 
 export default function Login() {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-muted p-6">
-      <LoginForm />
+    <div className="bg-background">
+      <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-sm">
+          <LoginForm />
+        </div>
+      </div>
     </div>
   );
 }
