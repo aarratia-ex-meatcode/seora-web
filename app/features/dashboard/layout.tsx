@@ -1,25 +1,26 @@
 "use client";
+
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/features/dashboard/components/app-sidebar";
 import { SiteHeader } from "@/features/dashboard/components/site-header";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Outlet } from "react-router";
 import { useAuthStore } from "~/stores/auth";
 import { useUserStore } from "~/stores/user";
+
+const SIDEBAR_WIDTH = "calc(var(--spacing) * 72)";
+const HEADER_HEIGHT = "calc(var(--spacing) * 12)";
+
+const sidebarProviderStyles = {
+  "--sidebar-width": SIDEBAR_WIDTH,
+  "--header-height": HEADER_HEIGHT,
+} as React.CSSProperties;
 
 export default function Page() {
   const { token } = useAuthStore();
   const { user } = useUserStore();
 
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-          "background-color": "var(--background)",
-        } as React.CSSProperties
-      }
-    >
+    <SidebarProvider style={sidebarProviderStyles}>
       <AppSidebar variant="sidebar" />
       <SidebarInset className="bg-background">
         <SiteHeader />
