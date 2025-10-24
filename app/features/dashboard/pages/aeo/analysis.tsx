@@ -18,9 +18,12 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Block } from "~/components/primitives/block";
+import { Title } from "~/components/primitives/title";
+import { Text } from "~/components/primitives/text";
 import { useRunAnalysis } from "~/features/dashboard/hooks/use-run-analysis";
 import { useProjectStore } from "~/stores/project";
 import { useProviderStore } from "~/stores/provider";
+import { Badge } from "~/components/ui/badge";
 
 type ModelKey = string;
 
@@ -64,9 +67,9 @@ function ModelCard({
         >
           {icon}
         </span>
-        <span className="text-primary-foreground text-[15px] font-medium">
+        <Text as="span" size="base" weight="medium">
           {label}
-        </span>
+        </Text>
       </Block>
       {active ? (
         <CheckCircle2 className="h-[18px] w-[18px] text-zinc-700" />
@@ -150,53 +153,62 @@ function AnalysisContent() {
   return (
     <Block className="mx-auto w-full max-w-7xl">
       <Block className="flex flex-col gap-y-4">
-        <Block className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <Block>
-            <Block className="flex items-center justify-between">
-              <Block>
-                <h1 className="flex items-center gap-3 text-3xl leading-tight font-bold">
-                  <span className="bg-primary text-primary-foreground grid h-10 w-10 place-items-center rounded-md">
-                    <Brain className="h-5 w-5" />
-                  </span>
-                  Optimización para Asistentes de IA
-                </h1>
-                <p className="text-muted-foreground mt-1 text-sm">
-                  Análisis de Inteligencia Competitiva con diferentes modelos de
-                  IA
-                </p>
+        <Block className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <Block className="flex flex-col gap-y-4">
+            <Block className="flex flex-row items-center justify-between gap-x-4">
+              <Block className="flex flex-row items-center gap-x-4">
+                <Block>
+                  <Title
+                    level="h2"
+                    size="2xl"
+                    weight="bold"
+                    className="flex items-center gap-3"
+                  >
+                    Optimización para Asistentes de IA
+                  </Title>
+                  <Text variant="muted" size="sm">
+                    Análisis de Inteligencia Competitiva con diferentes modelos
+                    de IA
+                  </Text>
+                </Block>
               </Block>
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
                 className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
                 onClick={startTour}
               >
                 <HelpCircle className="h-5 w-5" />
-                Ayuda
+                {/* Ayuda */}
               </Button>
             </Block>
 
             <Block className="border-primary space-y-6 rounded-md border bg-white p-6 shadow-none md:p-8">
               <Block className="space-y-1">
-                <h2 className="text-primary-foreground flex items-center gap-2 text-xl leading-tight font-bold">
+                <Title
+                  level="h2"
+                  size="xl"
+                  weight="bold"
+                  className="flex items-center gap-2"
+                >
                   <Settings2 className="size-4" />
                   Configuración del Análisis
-                </h2>
-                <p className="text-muted-foreground text-sm">
+                </Title>
+                <Text variant="muted" size="sm">
                   Ingresa tu pregunta para analizar con diferentes modelos de IA
-                </p>
+                </Text>
               </Block>
 
               <Block className="flex flex-col gap-6">
                 <Block className="border-primary bg-background flex items-center gap-3 rounded-md border px-5 py-3">
                   <User2 className="size-4" />
-                  <span className="text-primary-foreground text-[15px] font-medium">
+                  <Text as="span" size="base" weight="medium">
                     Marca objetivo:
-                  </span>
+                  </Text>
 
-                  <span className="text-primary-foreground text-[15px] font-medium">
+                  <Text as="span" size="base" weight="medium">
                     {projectName}
-                  </span>
+                  </Text>
                 </Block>
 
                 <Block className="step-question">
@@ -209,6 +221,23 @@ function AnalysisContent() {
                     placeholder={placeholder}
                     className="border-primary min-h-[110px] resize-none rounded-md border text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
                   />
+
+                  <Block className="mt-4 flex flex-row flex-wrap gap-2">
+                    {[
+                      "¿Quiénes lideran el mercado chileno?",
+                      "¿Cuáles son las tendencias actuales en Chile?",
+                      "¿Qué empresas lideran el sector de e-commerce en Chile?",
+                      "¿Cómo mejorar la presencia digital de una marca emergente en Chile?",
+                      "¿Qué sectores muestran mayor crecimiento en Chile durante 2025?",
+                      "¿Cuáles son las marcas de automóviles más vendidas en Chile?",
+                      "¿Cómo ha evolucionado la adopción de autos eléctricos en Chile?",
+                      "¿Qué tendencias predominan en la industria automotriz chilena?",
+                      "¿Qué estrategias comerciales son más efectivas para concesionarios de autos?",
+                      "¿Cómo afecta la regulación ambiental al mercado automotriz chileno?"
+                    ].map(question => (
+                      <Badge variant="outline" key={question}>{question}</Badge>
+                    ))}
+                  </Block>
                 </Block>
 
                 <Block className="step-models">
@@ -242,7 +271,7 @@ function AnalysisContent() {
               </Block>
             </Block>
 
-            <Block className="step-tabs flex justify-center gap-8">
+            <Block className="step-tabs flex justify-center gap-x-4">
               <Button
                 variant="outline"
                 className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
@@ -262,12 +291,26 @@ function AnalysisContent() {
             </Block>
           </Block>
 
-          <Block>
-            <Block>
-              <h2 className="text-primary-foreground text-xl leading-tight font-bold">
-                Resultados del Análisis
-              </h2>
+          <Block className="flex flex-col gap-y-4">
+            <Block className="flex flex-row items-center justify-between gap-x-4">
+              <Block className="flex flex-row items-center gap-x-4">
+                <Block>
+                  <Title
+                    level="h2"
+                    size="2xl"
+                    weight="bold"
+                    className="flex items-center gap-3"
+                  >
+                    Resultados del Análisis
+                  </Title>
+                  <Text variant="muted" size="sm">
+                    Resultados del análisis de la pregunta del usuario
+                  </Text>
+                </Block>
+              </Block>
             </Block>
+
+            <Block className="border-primary h-full space-y-6 rounded-md border bg-white p-6 shadow-none md:p-8"></Block>
           </Block>
         </Block>
       </Block>
