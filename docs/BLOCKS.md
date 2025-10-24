@@ -26,8 +26,8 @@ Primitives component directory: "@features/*": ["./app/features/*"]
 
 <!-- ### Content Primitives -->
 
-<!-- - [Text](/app/components/primitives/text.tsx): Text element with typography variants. -->
-<!-- - [Heading](/app/components/primitives/heading.tsx): Heading elements with hierarchical styling. -->
+- [Title](/app/components/primitives/title.tsx): Title elements with hierarchical styling.
+- [Text](/app/components/primitives/text.tsx): Text element with typography variants.
 <!-- - [Image](/app/components/primitives/image.tsx): Optimized image component with lazy loading. -->
 <!-- - [Link](/app/components/primitives/link.tsx): Styled link with hover states and accessibility. -->
 
