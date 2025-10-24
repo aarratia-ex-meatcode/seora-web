@@ -36,18 +36,20 @@ export default function DashboardLayout() {
           <Block className="flex min-h-svh flex-col">
             <Block className="flex w-full flex-1 flex-col">
               <Block className="sticky top-0 z-10">
-                <Header className="px-4 sm:px-8">
-                  <Nav className="flex h-16 flex-row items-center justify-between">
-                    <Block>
-                      <Logo />
-                    </Block>
-                    <Block>
-                      <ProfileDropdown />
-                    </Block>
-                  </Nav>
-                </Header>
-                <Block className="px-4 sm:px-8">
-                  <NavTabs />
+                <Block className="bg-background">
+                  <Header className="px-4 sm:px-8">
+                    <Nav className="flex h-16 flex-row items-center justify-between">
+                      <Block>
+                        <Logo />
+                      </Block>
+                      <Block>
+                        <ProfileDropdown />
+                      </Block>
+                    </Nav>
+                  </Header>
+                  <Block className="px-4 sm:px-8">
+                    <NavTabs />
+                  </Block>
                 </Block>
               </Block>
 
