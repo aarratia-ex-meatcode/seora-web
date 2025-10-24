@@ -40,7 +40,7 @@ function ProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="shadow-none">
+        <Button className="border-md bg-primary/20 font-medium shadow-none">
           <IconUserCircle />
           {userName}
           <IconChevronDown />
@@ -67,9 +67,7 @@ function ProfileDropdown() {
             </Text>
           </Block>
         </DropdownMenuLabel>
-
         <DropdownMenuSeparator />
-
         {PROFILE_DROPDOWN_ITEMS.map(item => (
           <DropdownMenuItem key={item.label} asChild>
             <Link to={item.href}>
@@ -78,9 +76,7 @@ function ProfileDropdown() {
             </Link>
           </DropdownMenuItem>
         ))}
-
         <DropdownMenuSeparator />
-
         <DropdownMenuItem asChild>
           <Link to="/logout">
             <IconLogout />
@@ -93,4 +89,3 @@ function ProfileDropdown() {
 }
 
 export { ProfileDropdown };
-
