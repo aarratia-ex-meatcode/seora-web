@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { type HTMLAttributes, type ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
 type BlockProps = HTMLAttributes<HTMLDivElement> & {
   children?: ReactNode;
 };
 
-function Block({ children, className, ...remainingProps }: BlockProps) {
+function Block({ className, children, ...remainingProps }: BlockProps) {
   const mergedClassName = cn(className);
 
   return (
