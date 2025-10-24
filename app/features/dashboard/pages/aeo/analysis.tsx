@@ -1,8 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import sampleQuestions from "@/data/questions.json";
 import steps from "@/data/steps.json";
@@ -19,6 +17,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { Block } from "~/components/primitives/block";
 import { useRunAnalysis } from "~/features/dashboard/hooks/use-run-analysis";
 import { useProjectStore } from "~/stores/project";
 import { useProviderStore } from "~/stores/provider";
@@ -57,7 +56,7 @@ function ModelCard({
           : "border-zinc-200 hover:border-zinc-300"
       }`}
     >
-      <div className="flex items-center gap-3">
+      <Block className="flex items-center gap-3">
         <span
           className={`grid h-8 w-8 place-items-center rounded-full border ${
             active ? "border-zinc-400" : "border-zinc-300"
@@ -68,7 +67,7 @@ function ModelCard({
         <span className="text-primary-foreground text-[15px] font-medium">
           {label}
         </span>
-      </div>
+      </Block>
       {active ? (
         <CheckCircle2 className="h-[18px] w-[18px] text-zinc-700" />
       ) : (
@@ -149,114 +148,129 @@ function AnalysisContent() {
   const projectName = currentProject?.name || "Sin proyecto";
 
   return (
-    <>
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="flex items-center gap-3 text-3xl leading-tight font-bold">
-            <span className="bg-primary text-primary-foreground grid h-10 w-10 place-items-center rounded-md">
-              <Brain className="h-5 w-5" />
-            </span>
-            Optimización para Asistentes de IA
-          </h1>
-          <p className="text-muted-foreground mt-1 text-sm">
-            Análisis de Inteligencia Competitiva con diferentes modelos de IA
-          </p>
-        </div>
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
-          onClick={startTour}
-        >
-          <HelpCircle className="h-5 w-5" />
-          Ayuda
-        </Button>
-      </div>
+    <Block className="mx-auto w-full max-w-7xl">
+      <Block className="flex flex-col gap-y-4">
+        <Block className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <Block>
+            <Block className="flex items-center justify-between">
+              <Block>
+                <h1 className="flex items-center gap-3 text-3xl leading-tight font-bold">
+                  <span className="bg-primary text-primary-foreground grid h-10 w-10 place-items-center rounded-md">
+                    <Brain className="h-5 w-5" />
+                  </span>
+                  Optimización para Asistentes de IA
+                </h1>
+                <p className="text-muted-foreground mt-1 text-sm">
+                  Análisis de Inteligencia Competitiva con diferentes modelos de
+                  IA
+                </p>
+              </Block>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
+                onClick={startTour}
+              >
+                <HelpCircle className="h-5 w-5" />
+                Ayuda
+              </Button>
+            </Block>
 
-      <div className="border-primary space-y-6 rounded-md border bg-white p-6 shadow-none md:p-8">
-        <div className="space-y-1">
-          <h2 className="text-primary-foreground flex items-center gap-2 text-xl leading-tight font-bold">
-            <Settings2 className="size-4" />
-            Configuración del Análisis
-          </h2>
-          <p className="text-muted-foreground text-sm">
-            Ingresa tu pregunta para analizar con diferentes modelos de IA
-          </p>
-        </div>
+            <Block className="border-primary space-y-6 rounded-md border bg-white p-6 shadow-none md:p-8">
+              <Block className="space-y-1">
+                <h2 className="text-primary-foreground flex items-center gap-2 text-xl leading-tight font-bold">
+                  <Settings2 className="size-4" />
+                  Configuración del Análisis
+                </h2>
+                <p className="text-muted-foreground text-sm">
+                  Ingresa tu pregunta para analizar con diferentes modelos de IA
+                </p>
+              </Block>
 
-        <div className="flex flex-col gap-6">
-          <div className="border-primary bg-background flex items-center gap-3 rounded-md border px-5 py-3">
-            <User2 className="size-4" />
-            <span className="text-primary-foreground text-[15px] font-medium">
-              Marca objetivo:
-            </span>
+              <Block className="flex flex-col gap-6">
+                <Block className="border-primary bg-background flex items-center gap-3 rounded-md border px-5 py-3">
+                  <User2 className="size-4" />
+                  <span className="text-primary-foreground text-[15px] font-medium">
+                    Marca objetivo:
+                  </span>
 
-            <span className="text-primary-foreground text-[15px] font-medium">
-              {projectName}
-            </span>
-          </div>
+                  <span className="text-primary-foreground text-[15px] font-medium">
+                    {projectName}
+                  </span>
+                </Block>
 
-          <div className="step-question">
-            <label className="text-primary-foreground mb-2 block text-sm font-semibold">
-              Pregunta del Usuario
-            </label>
-            <Textarea
-              value={question}
-              onChange={e => setQuestion(e.target.value)}
-              placeholder={placeholder}
-              className="border-primary min-h-[110px] resize-none rounded-md border text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
-            />
-          </div>
+                <Block className="step-question">
+                  <label className="text-primary-foreground mb-2 block text-sm font-semibold">
+                    Pregunta del Usuario
+                  </label>
+                  <Textarea
+                    value={question}
+                    onChange={e => setQuestion(e.target.value)}
+                    placeholder={placeholder}
+                    className="border-primary min-h-[110px] resize-none rounded-md border text-[15px] shadow-none focus-visible:border-zinc-400 focus-visible:ring-0"
+                  />
+                </Block>
 
-          <div className="step-models">
-            <label className="text-primary-foreground mb-3 block text-sm font-semibold">
-              Selecciona los modelos
-            </label>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {providers.map(slug => (
-                <ModelCard
-                  key={slug}
-                  icon={<Brain className="h-4 w-4 text-zinc-600" />}
-                  label={slug.charAt(0).toUpperCase() + slug.slice(1)}
-                  active={models.includes(slug)}
-                  onClick={() => toggleModel(slug)}
-                />
-              ))}
-            </div>
-          </div>
+                <Block className="step-models">
+                  <label className="text-primary-foreground mb-3 block text-sm font-semibold">
+                    Selecciona los modelos
+                  </label>
+                  <Block className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+                    {providers.map(slug => (
+                      <ModelCard
+                        key={slug}
+                        icon={<Brain className="h-4 w-4 text-zinc-600" />}
+                        label={slug.charAt(0).toUpperCase() + slug.slice(1)}
+                        active={models.includes(slug)}
+                        onClick={() => toggleModel(slug)}
+                      />
+                    ))}
+                  </Block>
+                </Block>
 
-          <div className="step-search flex justify-end">
-            <Button
-              onClick={handleSearch}
-              variant="soft"
-              size="lg"
-              disabled={runAnalysisMutation.isPending}
-            >
-              <Search className="h-5 w-5" />
-              {runAnalysisMutation.isPending ? "Analizando..." : "Buscar"}
-            </Button>
-          </div>
-        </div>
-      </div>
+                <Block className="step-search flex justify-end">
+                  <Button
+                    onClick={handleSearch}
+                    variant="soft"
+                    size="lg"
+                    disabled={runAnalysisMutation.isPending}
+                  >
+                    <Search className="h-5 w-5" />
+                    {runAnalysisMutation.isPending ? "Analizando..." : "Buscar"}
+                  </Button>
+                </Block>
+              </Block>
+            </Block>
 
-      <div className="step-tabs flex justify-center gap-8">
-        <Button
-          variant="outline"
-          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
-          size="lg"
-        >
-          <Brain />
-          Análisis Actual
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
-        >
-          <Clock className="h-5 w-5" />
-          Historial
-        </Button>
-      </div>
-    </>
+            <Block className="step-tabs flex justify-center gap-8">
+              <Button
+                variant="outline"
+                className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
+                size="lg"
+              >
+                <Brain />
+                Análisis Actual
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary text-primary-foreground hover:bg-primary/10 shadow-none"
+              >
+                <Clock className="h-5 w-5" />
+                Historial
+              </Button>
+            </Block>
+          </Block>
+
+          <Block>
+            <Block>
+              <h2 className="text-primary-foreground text-xl leading-tight font-bold">
+                Resultados del Análisis
+              </h2>
+            </Block>
+          </Block>
+        </Block>
+      </Block>
+    </Block>
   );
 }
