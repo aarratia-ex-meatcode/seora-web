@@ -38,3 +38,7 @@ Primitives component directory: "@features/*": ["./app/features/*"]
 <!-- - [Cover](/app/components/primitives/cover.tsx): Full-bleed container that breaks out of parent padding. -->
 <!-- - [Center](/app/components/primitives/center.tsx): Centering container for content. -->
 <!-- - [Sidebar](/app/components/primitives/sidebar.tsx): Fixed sidebar with responsive behavior. -->
+
+### Form Primitives
+
+[Form](/app/components/primitives/form.tsx): Form element with consistent spacing and validation patterns.
