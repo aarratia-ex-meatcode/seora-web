@@ -6,12 +6,7 @@ import { Link } from "react-router";
 function Logo() {
   return (
     <Link to="/" className="inline-flex items-center gap-1.5">
-      <Block
-        as="span"
-        className="text-primary-foreground bg-primary flex size-10 flex-row items-center justify-center rounded-md"
-      >
-        <IconBrain className="size-5" />
-      </Block>
+      <IconBrain className="size-5" />
       <Text as="span" size="2xl" weight="bold">
         seora.ai
       </Text>
