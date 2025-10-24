@@ -1,23 +1,31 @@
 import { cn } from "@/lib/utils";
 import type { HTMLAttributes, ReactNode } from "react";
 
-type BlockProps = HTMLAttributes<HTMLDivElement> & {
+type BlockProps = HTMLAttributes<HTMLElement> & {
+  as?: "div" | "span";
   children?: ReactNode;
 };
 
-function Block({ className, children, ...remainingProps }: BlockProps) {
+function Block({
+  as = "div",
+  className,
+  children,
+  ...remainingProps
+}: BlockProps) {
+  const Component = as;
   const mergedClassName = cn(className);
 
   return (
-    <div
+    <Component
       {...(mergedClassName && { className: mergedClassName })}
       {...remainingProps}
     >
       {children}
-    </div>
+    </Component>
   );
 }
 
 Block.displayName = "Block";
 
 export { Block, type BlockProps };
+
