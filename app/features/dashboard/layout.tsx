@@ -65,9 +65,7 @@ export default function DashboardLayout() {
           <Main className="flex flex-1 flex-col px-2 pt-px pb-2">
             <Block className="ring-background @container/main flex grow flex-col rounded-md ring-1">
               <Block className="px-4 py-6 lg:px-6 lg:py-8">
-                <Block className="flex flex-col gap-y-4">
-                  <Outlet context={{ user, token }} />
-                </Block>
+                <Outlet context={{ user, token }} />
               </Block>
             </Block>
           </Main>
