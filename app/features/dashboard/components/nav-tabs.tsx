@@ -65,7 +65,7 @@ function NavTabs({ className, triggerClassName }: NavTabsProps) {
               key={tab.value}
               value={tab.value}
               className={cn(
-                "group text-foreground hover:text-foreground relative px-0 pb-3 text-sm font-medium data-[state=active]:shadow-none",
+                "data-[state=active]:text-primary-foreground group text-primary-foreground/50 hover:text-foreground relative px-0 pb-3 text-sm font-medium data-[state=active]:bg-transparent data-[state=active]:shadow-none",
                 triggerClassName,
               )}
               asChild
