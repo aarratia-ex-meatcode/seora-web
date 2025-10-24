@@ -69,7 +69,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: IconBrain,
         children: [
           {
-            title: "AEO Analysis",
+            title: "Optimización para Asistentes de IA",
             url: "/dashboard/aeo/analysis",
             icon: IconChartBar,
           },

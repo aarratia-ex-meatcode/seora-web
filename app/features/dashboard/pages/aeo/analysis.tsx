@@ -156,7 +156,7 @@ function AnalysisContent() {
             <span className="bg-primary text-primary-foreground grid h-10 w-10 place-items-center rounded-md">
               <Brain className="h-5 w-5" />
             </span>
-            AEO Analysis
+            Optimización para Asistentes de IA
           </h1>
           <p className="text-muted-foreground mt-1 text-sm">
             Análisis de Inteligencia Competitiva con diferentes modelos de IA

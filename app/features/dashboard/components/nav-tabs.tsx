@@ -4,7 +4,7 @@ import { useTabIndicator } from "@/features/dashboard/hooks/use-nav-tab-indicato
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router";
 
-type TabValue = "dashboard" | "aeo-analysis";
+type TabValue = "dashboard" | "aeo-analysis" | "seo-audit";
 
 interface NavTab {
   label: string;
@@ -19,9 +19,14 @@ const NAVIGATION_TABS: NavTab[] = [
     to: "/dashboard",
   },
   {
-    label: "AEO Analysis",
+    label: "Optimización para Asistentes de IA",
     value: "aeo-analysis",
     to: "/dashboard/aeo/analysis",
+  },
+  {
+    label: "Optimización de Búsqueda Web",
+    value: "seo-audit",
+    to: "/dashboard/seo/audit",
   },
 ];
 

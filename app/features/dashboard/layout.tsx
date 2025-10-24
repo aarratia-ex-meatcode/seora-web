@@ -1,15 +1,17 @@
 "use client";
 
+import { Logo } from "@/components/common/logo";
 import { Block } from "@/components/primitives/block";
 import { Header } from "@/components/primitives/header";
 import { Nav } from "@/components/primitives/nav";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/features/dashboard/components/app-sidebar";
 import { NavTabs } from "@/features/dashboard/components/nav-tabs";
+import { ProfileDropdown } from "@/features/dashboard/components/profile-dropdown";
 import { SiteHeader } from "@/features/dashboard/components/site-header";
 import { useAuthStore } from "@/stores/auth";
 import { useUserStore } from "@/stores/user";
-import { Link, Outlet } from "react-router";
+import { Outlet } from "react-router";
 
 const SIDEBAR_WIDTH = "calc(var(--spacing) * 72)";
 const HEADER_HEIGHT = "calc(var(--spacing) * 12)";
@@ -26,15 +28,17 @@ export default function DashboardLayout() {
   return (
     <>
       <SidebarProvider style={SIDEBAR_PROVIDER_STYLES}>
-        {/* <AppSidebar variant="sidebar" /> */}
+        <AppSidebar variant="sidebar" />
         <SidebarInset className="bg-background">
           <Block className="sticky top-0 z-10">
             <Header className="px-4 sm:px-8">
               <Nav className="flex h-16 flex-row items-center justify-between">
                 <Block>
-                  <Link to="/">seora.ai</Link>
+                  <Logo />
                 </Block>
-                <Block></Block>
+                <Block>
+                  <ProfileDropdown />
+                </Block>
               </Nav>
             </Header>
 
