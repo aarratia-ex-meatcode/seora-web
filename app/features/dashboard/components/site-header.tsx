@@ -68,29 +68,31 @@ export function SiteHeader() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-
-      <div className="flex items-center gap-2">
-        {credits > 0 ? (
-          <>
+      
+      {/*
+        <div className="flex items-center gap-2">
+          {credits > 0 ? (
+            <>
+              <Badge
+                variant="outline"
+                className="rounded-full border-blue-200 bg-blue-50 px-3 text-xs text-blue-600"
+              >
+                FREE
+              </Badge>
+              <span className="text-sm text-gray-600">
+                {credits} créditos restantes
+              </span>
+            </>
+          ) : (
             <Badge
-              variant="outline"
-              className="rounded-full border-blue-200 bg-blue-50 px-3 text-xs text-blue-600"
+              variant="secondary"
+              className="text-primary-foreground border-primary rounded-full border bg-[#f9f1db] px-3 py-1 text-xs"
             >
-              FREE
+              Sin créditos
             </Badge>
-            <span className="text-sm text-gray-600">
-              {credits} créditos restantes
-            </span>
-          </>
-        ) : (
-          <Badge
-            variant="secondary"
-            className="text-primary-foreground border-primary rounded-full border bg-[#f9f1db] px-3 py-1 text-xs"
-          >
-            Sin créditos
-          </Badge>
-        )}
-      </div>
+          )}
+        </div>
+      */}
 
       <CreateProjectModal open={open} onOpenChange={setOpen} />
     </header>
