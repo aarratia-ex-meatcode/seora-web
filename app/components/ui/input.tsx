@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "~/lib/utils";
 
 const inputVariants = cva(
@@ -10,7 +11,7 @@ const inputVariants = cva(
         default:
           "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
       },
-      dimensions: {
+      size: {
         default: "h-9",
         sm: "h-8",
         lg: "h-10",
@@ -23,7 +24,7 @@ const inputVariants = cva(
     },
     defaultVariants: {
       variant: "default",
-      dimensions: "default",
+      size: "default",
       shadow: "none",
     },
   },
@@ -31,17 +32,18 @@ const inputVariants = cva(
 
 function Input({
   type,
-  variant = "default",
-  dimensions = "default",
-  shadow = "none",
+  variant,
+  size,
+  shadow,
   className,
   ...props
-}: React.ComponentProps<"input"> & VariantProps<typeof inputVariants>) {
+}: Omit<React.ComponentProps<"input">, "size"> &
+  VariantProps<typeof inputVariants>) {
   return (
     <input
       type={type}
       data-slot="input"
-      className={cn(inputVariants({ variant, dimensions, shadow, className }))}
+      className={cn(inputVariants({ variant, size, shadow, className }))}
       {...props}
     />
   );
