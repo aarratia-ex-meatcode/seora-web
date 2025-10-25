@@ -40,7 +40,7 @@ function CreateNewProjectModal() {
             <Button
               variant="outline"
               size="icon"
-              className="hover:bg-primary/20 font-medium"
+              className="hover:bg-primary/20 font-medium shadow-none"
             >
               <Plus />
             </Button>
