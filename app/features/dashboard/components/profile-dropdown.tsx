@@ -40,7 +40,7 @@ function ProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="border-md bg-primary/20 font-medium shadow-none">
+        <Button className="bg-primary/20 font-medium shadow-none">
           <IconUserCircle />
           {userName}
           <IconChevronDown />
