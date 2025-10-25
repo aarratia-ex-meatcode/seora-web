@@ -7,6 +7,7 @@ import { Main } from "@/components/primitives/main";
 import { Nav } from "@/components/primitives/nav";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/features/dashboard/components/app-sidebar";
+import { CreateNewProjectModal } from "@/features/dashboard/components/modals/create-new-project-modal";
 import { NavTabs } from "@/features/dashboard/components/nav-tabs";
 import { ProfileDropdown } from "@/features/dashboard/components/profile-dropdown";
 import { SiteHeader } from "@/features/dashboard/components/site-header";
@@ -31,7 +32,7 @@ export default function DashboardLayout() {
       <SidebarProvider style={SIDEBAR_PROVIDER_STYLES}>
         {/* <AppSidebar variant="sidebar" /> */}
         <SidebarInset className="bg-background">
-          <SiteHeader />
+          {/* <SiteHeader /> */}
 
           <Block className="flex min-h-svh flex-col">
             <Block className="flex w-full flex-1 flex-col">
@@ -42,7 +43,8 @@ export default function DashboardLayout() {
                       <Block>
                         <Logo />
                       </Block>
-                      <Block>
+                      <Block className="flex flex-row items-center gap-4">
+                        <CreateNewProjectModal />
                         <ProfileDropdown />
                       </Block>
                     </Nav>
