@@ -39,10 +39,10 @@ function CreateNewProjectModal() {
           <DialogTrigger asChild>
             <Button
               variant="outline"
+              size="icon"
               className="hover:bg-primary/20 font-medium shadow-none"
             >
               <Plus />
-              Crear nuevo proyecto
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[31.25rem]">
