@@ -10,6 +10,7 @@ import { AppSidebar } from "@/features/dashboard/components/app-sidebar";
 import { CreateNewProjectModal } from "@/features/dashboard/components/modals/create-new-project-modal";
 import { NavTabs } from "@/features/dashboard/components/nav-tabs";
 import { ProfileDropdown } from "@/features/dashboard/components/profile-dropdown";
+import { ProjectCombobox } from "@/features/dashboard/components/project-combobox";
 import { SiteHeader } from "@/features/dashboard/components/site-header";
 import { useAuthStore } from "@/stores/auth";
 import { useUserStore } from "@/stores/user";
@@ -40,11 +41,14 @@ export default function DashboardLayout() {
                 <Block className="bg-background">
                   <Header className="px-4 sm:px-8">
                     <Nav className="flex h-16 flex-row items-center justify-between">
-                      <Block>
+                      <Block className="flex flex-row items-center gap-4">
                         <Logo />
                       </Block>
                       <Block className="flex flex-row items-center gap-4">
-                        <CreateNewProjectModal />
+                        <Block className="flex flex-row items-center gap-2">  
+                          <ProjectCombobox />
+                          <CreateNewProjectModal />
+                        </Block>
                         <ProfileDropdown />
                       </Block>
                     </Nav>
