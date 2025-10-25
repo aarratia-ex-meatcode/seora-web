@@ -79,7 +79,7 @@ export function ProjectCombobox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[12.5rem] justify-between shadow-none"
+          className="hover:bg-primary/20 w-[12.5rem] justify-between font-medium"
         >
           {buttonMessage}
           <ChevronsUpDown />

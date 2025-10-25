@@ -40,7 +40,7 @@ function ProfileDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-primary/20 font-medium shadow-none">
+        <Button className="bg-primary/20 font-medium">
           <IconUserCircle />
           {userName}
           <IconChevronDown />
@@ -49,7 +49,7 @@ function ProfileDropdown() {
       <DropdownMenuContent
         align="end"
         sideOffset={10}
-        className="max-w-92 min-w-64 rounded-md shadow-none"
+        className="max-w-92 min-w-64 rounded-md"
       >
         <DropdownMenuLabel>
           <Block className="flex flex-col">
